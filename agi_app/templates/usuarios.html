@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Gerenciar Usuários</h2>
+<a href="{{ url_for('adicionar_usuario') }}">➕ Novo Usuário</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Ações</th>
+    </tr>
+    {% for usuario in usuarios %}
+    <tr>
+        <td>{{ usuario[0] }}</td>
+        <td>{{ usuario[1] }}</td>
+        <td>
+            <a href="{{ url_for('excluir_usuario', id=usuario[0]) }}" onclick="return confirm('Deseja excluir este usuário?')">🗑 Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

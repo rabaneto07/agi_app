@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if cliente %}Editar{% else %}Adicionar{% endif %} Cliente</h2>
+<form method="post">
+    <label>Nome:</label><br>
+    <input type="text" name="nome" value="{{ cliente.nome if cliente else '' }}"><br>
+    <label>Email:</label><br>
+    <input type="email" name="email" value="{{ cliente.email if cliente else '' }}"><br>
+    <label>Telefone:</label><br>
+    <input type="text" name="telefone" value="{{ cliente.telefone if cliente else '' }}"><br>
+    <input type="submit" value="Salvar">
+</form>
+<a href="{{ url_for('listar_clientes') }}">Voltar</a>
+{% endblock %}
